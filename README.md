@@ -28,16 +28,20 @@ sudo apt install -y clang-15 llvm-15 lld-15 libbpf-dev libelf-dev bpftool linux-
 ## Code structure
 src/  
 ├── Makefile              
-├── loader.c                    # User-space loader that attaches the BPF program  
-├── bpf_programs/               # Directory for all eBPF-related files  
-│   ├── execsnoop.bpf.c         # eBPF program attached to the execve syscall  
-│   └── vmlinux.h               # Auto-generated kernel type definitions (from BTF)  
+├── loader.c                    
+├── bpf_programs/                
+│   ├── execsnoop.bpf.c          
+
+### Description
+ - `loader.c`: User-space loader that loads and attaches the BPF program to a tracepoint.
+ - `bpf_programs/`: Contains all eBPF-related files.
+    - `execsnoop.bpf.c`: The eBPF program that hooks into the execve syscall via a tracepoint.
 
 ## Build and running
 
-I only have one bpf program at the moment called `execsnoop.bpf.c`.   
-This program attaches to the linux execve system call using a tracepoint.   
-Specifically in our case we check if the process name matches `bash`,`ls` or `python` then logs a message using bpf_printk if it matches.  
+- The project currently includes one eBPF program: `execsnoop.bpf.c`.  
+- It attaches to the Linux `execve` syscall using a tracepoint.  
+- When a process named `bash`, `ls`, or `python` is executed, it logs the event using `bpf_printk`.
 
 ```bash
 cd ./src
