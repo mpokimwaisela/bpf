@@ -1,3 +1,17 @@
+/*
+ * loader.c
+ * Author: Mpoki Mwaisela
+ *
+ * This user-space program loads and attaches an eBPF program to the
+ * `execve` syscall tracepoint using the perf_event API.
+ *
+ * It raises the memory lock limit, loads the BPF object file,
+ * finds the appropriate program, and attaches it to the tracepoint
+ * `syscalls:sys_enter_execve`.
+ *
+ * Once attached, it streams log output from bpf_printk via trace_pipe.
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <fcntl.h>

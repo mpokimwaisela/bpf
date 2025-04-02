@@ -1,5 +1,6 @@
 /*
  * execsnoop.bpf.c
+ * Author: Mpoki Mwaisela
  *
  * This eBPF program attaches to the Linux `execve` syscall via a tracepoint.
  * It runs every time a new process is executed on the system.
@@ -11,6 +12,7 @@
  * This is a lightweight way to trace selected process executions in real time
  * entirely from within the kernel.
  */
+
 
 
 #include "vmlinux.h"
