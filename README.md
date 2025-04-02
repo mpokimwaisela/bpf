@@ -48,7 +48,9 @@ cd ./src
 make
 sudo ./loader
 ```
-After starting the loader you to test the program you can start another terminal, then run commands on bash, ls or python.   
-They should be logged on the loader's terminal using bpf_printk.
+- After starting the loader, open another terminal to test the program.  
+- Run commands like `bash`, `ls`, or `python` to trigger the tracepoint.  
+- These events will be logged in the loader's terminal via `bpf_printk`.
+
 
 
