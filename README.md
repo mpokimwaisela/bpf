@@ -27,11 +27,11 @@ sudo apt install -y clang-15 llvm-15 lld-15 libbpf-dev libelf-dev bpftool linux-
 
 ## Code structure
 src/  
-├── Makefile              # Build system for eBPF and user-space programs  
-├── loader.c              # User-space loader that attaches the BPF program  
-├── bpf_programs/         # Directory for all eBPF-related files  
-│   ├── execsnoop.bpf.c   # eBPF program attached to the execve syscall  
-│   └── vmlinux.h         # Auto-generated kernel type definitions (from BTF)  
+├── Makefile              
+├── loader.c                    # User-space loader that attaches the BPF program  
+├── bpf_programs/               # Directory for all eBPF-related files  
+│   ├── execsnoop.bpf.c         # eBPF program attached to the execve syscall  
+│   └── vmlinux.h               # Auto-generated kernel type definitions (from BTF)  
 
 ## Build and running
 
